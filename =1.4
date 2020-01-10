@@ -1,0 +1,42 @@
+Collecting x11-hash
+  Using cached https://files.pythonhosted.org/packages/1a/85/9b4058ef4a3a4678c2a039c59b07fb6003ccde2fd6a05cc5670da247ba4e/x11_hash-1.4.tar.gz
+Building wheels for collected packages: x11-hash
+  Running setup.py bdist_wheel for x11-hash: started
+  Running setup.py bdist_wheel for x11-hash: finished with status 'error'
+  Complete output from command /usr/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-24wnvrbc/x11-hash/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/tmp2uk9pgatpip-wheel- --python-tag cp36:
+  running bdist_wheel
+  running build
+  running build_ext
+  building 'x11_hash' extension
+  creating build
+  creating build/temp.linux-x86_64-3.6
+  creating build/temp.linux-x86_64-3.6/sha3
+  x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I. -I./sha3 -I/usr/include/python3.6m -c x11module.c -o build/temp.linux-x86_64-3.6/x11module.o
+  x11module.c:1:10: fatal error: Python.h: No such file or directory
+   #include <Python.h>
+            ^~~~~~~~~~
+  compilation terminated.
+  error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  
+  ----------------------------------------
+  Running setup.py clean for x11-hash
+Failed to build x11-hash
+Installing collected packages: x11-hash
+  Running setup.py install for x11-hash: started
+    Running setup.py install for x11-hash: finished with status 'error'
+    Complete output from command /usr/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-24wnvrbc/x11-hash/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-17dz7cew-record/install-record.txt --single-version-externally-managed --compile:
+    running install
+    running build
+    running build_ext
+    building 'x11_hash' extension
+    creating build
+    creating build/temp.linux-x86_64-3.6
+    creating build/temp.linux-x86_64-3.6/sha3
+    x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I. -I./sha3 -I/usr/include/python3.6m -c x11module.c -o build/temp.linux-x86_64-3.6/x11module.o
+    x11module.c:1:10: fatal error: Python.h: No such file or directory
+     #include <Python.h>
+              ^~~~~~~~~~
+    compilation terminated.
+    error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    
+    ----------------------------------------

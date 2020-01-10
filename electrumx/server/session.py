@@ -710,8 +710,8 @@ class SessionManager:
             raise RPCError(BAD_REQUEST, f'height {height:,d} '
                            'out of range') from None
 
-    async def broadcast_transaction(self, raw_tx):
-        hex_hash = await self.daemon.broadcast_transaction(raw_tx)
+    async def broadcast_transaction(self, raw_tx, allow_high_fees=False, instant_send=False, bypass_limits=False):
+        hex_hash = await self.daemon.broadcast_transaction(raw_tx, allow_high_fees, instant_send, bypass_limits)
         self.txs_sent += 1
         return hex_hash
 
@@ -1295,14 +1295,14 @@ class ElectrumX(SessionBase):
                 # this can crash electrum client (v < 2.8.2) UNION (3.0.0 <= v < 3.3.0)
                 await self.send_notification('blockchain.estimatefee', ())
 
-    async def transaction_broadcast(self, raw_tx):
+    async def transaction_broadcast(self, raw_tx, allow_high_fees=False, instant_send=False, bypass_limits=False):
         '''Broadcast a raw transaction to the network.
 
         raw_tx: the raw transaction as a hexadecimal string'''
         self.bump_cost(0.25 + len(raw_tx) / 5000)
         # This returns errors as JSON RPC errors, as is natural
         try:
-            hex_hash = await self.session_mgr.broadcast_transaction(raw_tx)
+            hex_hash = await self.session_mgr.broadcast_transaction(raw_tx, allow_high_fees, instant_send, bypass_limits)
         except DaemonError as e:
             error, = e.args
             message = error['message']

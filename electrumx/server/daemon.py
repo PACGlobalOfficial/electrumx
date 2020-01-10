@@ -269,9 +269,9 @@ class Daemon(object):
         # Convert hex strings to bytes
         return [hex_to_bytes(tx) if tx else None for tx in txs]
 
-    async def broadcast_transaction(self, raw_tx):
+    async def broadcast_transaction(self, raw_tx, allow_high_fees=False, instant_send=False, bypass_limits=False):
         '''Broadcast a transaction to the network.'''
-        return await self._send_single('sendrawtransaction', (raw_tx, ))
+        return await self._send_single('sendrawtransaction', (raw_tx, allow_high_fees, instant_send, bypass_limits,))
 
     async def height(self):
         '''Query the daemon for its current height.'''
