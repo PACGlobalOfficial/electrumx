@@ -7,7 +7,7 @@ setuptools.setup(
     scripts=['electrumx_server', 'electrumx_rpc', 'electrumx_compact_history'],
     python_requires='>=3.6',
     install_requires=['aiorpcX[ws]>=0.18.3,<0.19', 'attrs',
-                      'plyvel', 'pylru', 'aiohttp>=3.3', 'x11-hash>=1.4'],
+                      'plyvel', 'pylru', 'aiohttp>=3.3', 'x11-hash>=1.4', 'websockets'],
     extras_require={
         'rocksdb': ['python-rocksdb>=0.6.9'],
         'uvloop': ['uvloop>=0.12.2'],   # Bump when the uvloop connection_lost bug is fixed
